@@ -5,13 +5,20 @@ import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { VStack } from "@chakra-ui/layout";
 const Signup = () => {
   const [show, setShow] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const submitHandler = () => {
+    console.log(name, email, password, confirmPassword);
+  };
   return (
     <VStack spacing="5px">
       <FormControl id="first-name" isRequired>
         <FormLabel>Name</FormLabel>
         <Input
           placeholder="Enter Your Name"
-          //   onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
       </FormControl>
       <FormControl id="email" isRequired>
@@ -19,7 +26,7 @@ const Signup = () => {
         <Input
           type="email"
           placeholder="Enter Your Email Address"
-          //   onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </FormControl>
       <FormControl id="password" isRequired>
@@ -28,7 +35,7 @@ const Signup = () => {
           <Input
             type={show ? "text" : "password"}
             placeholder="Enter Password"
-            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={() => {}}>
@@ -43,7 +50,7 @@ const Signup = () => {
           <Input
             type={show ? "text" : "password"}
             placeholder="Confirm password"
-            // onChange={(e) => setConfirmpassword(e.target.value)}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={() => {}}>
@@ -65,7 +72,7 @@ const Signup = () => {
         colorScheme="blue"
         width="100%"
         style={{ marginTop: 15 }}
-        // onClick={submitHandler}
+        onClick={submitHandler}
         // isLoading={picLoading}
       >
         Sign Up
